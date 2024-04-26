@@ -66,7 +66,9 @@ const TicTac = () => {
         setMatchEnd(false)
     }
 
-    const checkWinner = () => {
+    const checkWinner = (cells, user, bot) => {
+
+        let sqr = cells ?? squares;
 
         const lines = [
             [0, 1, 2],
@@ -81,8 +83,8 @@ const TicTac = () => {
 
         for (let i = 0; i < lines.length; i++) {
             const [a, b, c] = lines[i];
-            if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
-                toast(`🥳🥳 Player ${squares[a] === 'x' ? "1" : '2'} Won the match 🥳🥳`, {
+            if (sqr[a] && sqr[a] === sqr[b] && sqr[a] === sqr[c]) {
+                toast(`🥳🥳 Player ${sqr[a] === 'x' ? "1" : '2'} Won the match 🥳🥳`, {
                     icon: '🤗', style: {
                         borderRadius: '10px',
                         background: '#333',
@@ -92,9 +94,16 @@ const TicTac = () => {
                 setMatchEnd(true)
                 return;
             }
+
+            if (sqr[a] === user && sqr[a] === sqr[b] && sqr[c] === '')
+                return c;
+
+            if (sqr[a] === bot && sqr[a] === sqr[b] && sqr[c] === '')
+                return c;
+
         }
 
-        let draw = squares.includes('')
+        let draw = sqr.includes('')
 
         if (!draw) {
             toast("🥴🥴 Match Draw 🥴🥴", {
@@ -211,14 +220,19 @@ const TicTac = () => {
             }
         })?.filter(item => item !== undefined)
 
+        console.log(cells, '\n', indexes)
 
         let ind = Math.floor(Math.random() * indexes.length);
 
+        let beatIndex = checkWinner(cells, choose, choose === 'x' ? 'o' : 'x') || indexes[ind]
+
+        console.log('check winner: ', beatIndex)
+
         setTimeout(() => {
             if (choose === 'x') {
-                OPlayerStep(getCellRef(indexes[ind]))
+                OPlayerStep(getCellRef(beatIndex))
             } else {
-                XPlayerStep(getCellRef(indexes[ind]))
+                XPlayerStep(getCellRef(beatIndex))
             }
         }, 1000);
     }
