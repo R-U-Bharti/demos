@@ -234,7 +234,7 @@ const TicTac = () => {
             } else {
                 XPlayerStep(getCellRef(beatIndex))
             }
-        }, 1000);
+        }, 500);
     }
 
     const handleCell = (cell) => {
