@@ -1,0 +1,46 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: none;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  box-sizing: border-box;
+  min-width: 320px;
+  min-height: 100vh;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.dev/svgjs' width='1920' height='1080' preserveAspectRatio='none' viewBox='0 0 1440 560'%3e%3cg mask='url(%26quot%3b%23SvgjsMask1011%26quot%3b)' fill='none'%3e%3crect width='1920px' height='1080px' x='0' y='0' fill='%230e2a47'%3e%3c/rect%3e%3cpath d='M1162.16080472598 268.6766699485562L1284.7208464882335 211.52598389102084 1227.570160430698 88.96594212876735 1105.0101186684446 146.1166281863027z' fill='rgba(28%2c 83%2c 142%2c 0.4)' class='triangle-float3'%3e%3c/path%3e%3cpath d='M1108.0026507320058 377.2977479989879L1186.5770498278166 407.4596338863889 1216.7389357152174 328.8852347905782 1138.1645366194068 298.7233489031772z' fill='rgba(28%2c 83%2c 142%2c 0.4)' class='triangle-float2'%3e%3c/path%3e%3cpath d='M590.17%2c588.288C639.596%2c586.968%2c679.545%2c551.316%2c702.592%2c507.572C724.006%2c466.928%2c725.532%2c417.483%2c700.435%2c379.004C677.278%2c343.5%2c632.541%2c333.992%2c590.17%2c335.208C550.327%2c336.351%2c512.988%2c352.229%2c490.345%2c385.032C463.766%2c423.537%2c446.22%2c471.871%2c466.846%2c513.867C489.531%2c560.057%2c538.728%2c589.662%2c590.17%2c588.288' fill='rgba(28%2c 83%2c 142%2c 0.4)' class='triangle-float1'%3e%3c/path%3e%3cpath d='M1008.675%2c198.733C1046.13%2c196.7%2c1078.829%2c175.469%2c1097.677%2c143.038C1116.627%2c110.432%2c1120.648%2c70.547%2c1102.331%2c37.581C1083.509%2c3.706%2c1047.384%2c-18.991%2c1008.675%2c-17.144C972.521%2c-15.419%2c948.59%2c15.198%2c929.318%2c45.836C908.114%2c79.544%2c882.862%2c118.354%2c901.207%2c153.7C920.384%2c190.649%2c967.107%2c200.989%2c1008.675%2c198.733' fill='rgba(28%2c 83%2c 142%2c 0.4)' class='triangle-float1'%3e%3c/path%3e%3cpath d='M1395.23707733063-37.56082537457245L1285.5497832085418-60.8755794720519 1262.2350291110624 48.811714650036215 1371.9223232331506 72.12646874751567z' fill='rgba(28%2c 83%2c 142%2c 0.4)' class='triangle-float3'%3e%3c/path%3e%3cpath d='M145.951%2c190.852C183.96%2c189.431%2c205.255%2c151.715%2c224.345%2c118.817C243.544%2c85.731%2c266.086%2c48.332%2c248.307%2c14.462C229.742%2c-20.906%2c185.854%2c-32.369%2c145.951%2c-30.529C109.392%2c-28.843%2c76.943%2c-8.545%2c58.735%2c23.202C40.622%2c54.783%2c39.896%2c92.789%2c56.698%2c125.087C74.978%2c160.225%2c106.37%2c192.332%2c145.951%2c190.852' fill='rgba(28%2c 83%2c 142%2c 0.4)' class='triangle-float2'%3e%3c/path%3e%3c/g%3e%3cdefs%3e%3cmask id='SvgjsMask1011'%3e%3crect width='1440' height='560' fill='white'%3e%3c/rect%3e%3c/mask%3e%3cstyle%3e %40keyframes float1 %7b 0%25%7btransform: translate(0%2c 0)%7d 50%25%7btransform: translate(-10px%2c 0)%7d 100%25%7btransform: translate(0%2c 0)%7d %7d .triangle-float1 %7b animation: float1 5s infinite%3b %7d %40keyframes float2 %7b 0%25%7btransform: translate(0%2c 0)%7d 50%25%7btransform: translate(-5px%2c -5px)%7d 100%25%7btransform: translate(0%2c 0)%7d %7d .triangle-float2 %7b animation: float2 4s infinite%3b %7d %40keyframes float3 %7b 0%25%7btransform: translate(0%2c 0)%7d 50%25%7btransform: translate(0%2c -10px)%7d 100%25%7btransform: translate(0%2c 0)%7d %7d .triangle-float3 %7b animation: float3 6s infinite%3b %7d %3c/style%3e%3c/defs%3e%3c/svg%3e");
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+ ::-webkit-scrollbar-track {
+   border-radius: 5px;
+ }
+
+ ::-webkit-scrollbar-thumb {
+   background-color: rgba(128, 128, 128, 0.315);
+   border: 3px solid transparent;
+   border-radius: 9px;
+   background-clip: content-box;
+ }
+
+ ::-webkit-scrollbar {
+   background: transparent;
+   width: 9px;
+   height: 9px;
+ }
