@@ -214,8 +214,6 @@ const TicTac = () => {
 
         let ind = Math.floor(Math.random() * indexes.length);
 
-        console.log(cells, '\n', indexes, '\n', ind)
-
         setTimeout(() => {
             if (choose === 'x') {
                 OPlayerStep(getCellRef(indexes[ind]))
