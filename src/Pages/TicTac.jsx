@@ -144,6 +144,8 @@ const TicTac = () => {
             setTimeout(() => {
                 autoOMove(sq)
             }, 1000);
+        } else {
+            checkWinner(sq)
         }
     }
 
@@ -173,6 +175,8 @@ const TicTac = () => {
             setTimeout(() => {
                 autoOMove(sq)
             }, 1000);
+        } else {
+            checkWinner(sq)
         }
 
     }
