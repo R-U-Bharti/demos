@@ -103,18 +103,18 @@ const TicTac = () => {
 
         }
 
-        let draw = sqr.includes('')
+        // let draw = sqr.includes('')
 
-        if (!draw) {
-            toast("🥴🥴 Match Draw 🥴🥴", {
-                icon: '🤭', style: {
-                    borderRadius: '10px',
-                    background: '#333',
-                    color: '#fff',
-                },
-            })
-            setMatchEnd(true)
-        }
+        // if (!draw) {
+        //     toast("🥴🥴 Match Draw 🥴🥴", {
+        //         icon: '🤭', style: {
+        //             borderRadius: '10px',
+        //             background: '#333',
+        //             color: '#fff',
+        //         },
+        //     })
+        //     setMatchEnd(true)
+        // }
 
     }
 
@@ -129,24 +129,27 @@ const TicTac = () => {
 
         cell.current.innerHTML = crossHtml
         cell.current.accessKey = 'x'
-        setFirst(false)
-
+        
         let sq = [];
 
-        setSquares(prevSquares => {
-            const newSquares = [...prevSquares];
-            newSquares[parseInt(cellId)] = 'x';
-            sq = newSquares;
-            return newSquares;
-        });
+        if (!squares[parseInt(cellId)]) {
+            setFirst(false)
+            setSquares(prevSquares => {
+                const newSquares = [...prevSquares];
+                newSquares[parseInt(cellId)] = 'x';
+                sq = newSquares;
+                return newSquares;
+            });
 
-        if (!matchEnd && player == '1' && choose === 'x') {
-            setTimeout(() => {
-                autoOMove(sq)
-            }, 1000);
-        } else {
-            checkWinner(sq)
+            if (!matchEnd && player == '1' && choose === 'x') {
+                setTimeout(() => {
+                    autoOMove(sq)
+                }, 1000);
+            }
         }
+
+        checkWinner(sq)
+
     }
 
     const OPlayerStep = (cell) => {
@@ -160,24 +163,26 @@ const TicTac = () => {
 
         cell.current.innerHTML = circleHtml
         cell.current.accessKey = 'o'
-        setFirst(true)
-
+        
         let sq = [];
+        
+        if (!squares[parseInt(cellId)]) {
+            setFirst(true)
+            setSquares(prevSquares => {
+                const newSquares = [...prevSquares];
+                newSquares[parseInt(cellId)] = 'o';
+                sq = newSquares;
+                return newSquares;
+            });
 
-        setSquares(prevSquares => {
-            const newSquares = [...prevSquares];
-            newSquares[parseInt(cellId)] = 'o';
-            sq = newSquares;
-            return newSquares;
-        });
-
-        if (!matchEnd && player == '1' && choose === 'o') {
-            setTimeout(() => {
-                autoOMove(sq)
-            }, 1000);
-        } else {
-            checkWinner(sq)
+            if (!matchEnd && player == '1' && choose === 'o') {
+                setTimeout(() => {
+                    autoOMove(sq)
+                }, 1000);
+            }
         }
+
+        checkWinner(sq)
 
     }
 
