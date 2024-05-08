@@ -94,12 +94,31 @@ const TicTac = () => {
                 setMatchEnd(true)
                 return;
             }
+        }
 
+        for (let i = 0; i < lines.length; i++) {
+            const [a, b, c] = lines[i];
+            if (sqr[a] === bot && sqr[a] === sqr[b] && sqr[c] === '')
+                return c;
+
+            if (sqr[a] === bot && sqr[a] === sqr[c] && sqr[b] === '')
+                return b;
+
+            if (sqr[b] === bot && sqr[b] === sqr[c] && sqr[a] === '')
+                return a;
+
+        }
+
+        for (let i = 0; i < lines.length; i++) {
+            const [a, b, c] = lines[i];
             if (sqr[a] === user && sqr[a] === sqr[b] && sqr[c] === '')
                 return c;
 
-            if (sqr[a] === bot && sqr[a] === sqr[b] && sqr[c] === '')
-                return c;
+            if (sqr[a] === user && sqr[a] === sqr[c] && sqr[b] === '')
+                return b;
+
+            if (sqr[b] === user && sqr[b] === sqr[c] && sqr[a] === '')
+                return a;
 
         }
 
@@ -129,7 +148,7 @@ const TicTac = () => {
 
         cell.current.innerHTML = crossHtml
         cell.current.accessKey = 'x'
-        
+
         let sq = [];
 
         if (!squares[parseInt(cellId)]) {
@@ -163,9 +182,9 @@ const TicTac = () => {
 
         cell.current.innerHTML = circleHtml
         cell.current.accessKey = 'o'
-        
+
         let sq = [];
-        
+
         if (!squares[parseInt(cellId)]) {
             setFirst(true)
             setSquares(prevSquares => {
