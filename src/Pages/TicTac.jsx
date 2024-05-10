@@ -161,9 +161,7 @@ const TicTac = () => {
             });
 
             if (!matchEnd && player == '1' && choose === 'x') {
-                setTimeout(() => {
                     autoOMove(sq)
-                }, 1000);
             }
         }
 
@@ -195,9 +193,7 @@ const TicTac = () => {
             });
 
             if (!matchEnd && player == '1' && choose === 'o') {
-                setTimeout(() => {
                     autoOMove(sq)
-                }, 1000);
             }
         }
 
@@ -258,7 +254,15 @@ const TicTac = () => {
 
         setTimeout(() => {
             if (choose === 'x') {
-                OPlayerStep(getCellRef(beatIndex))
+                
+                let check = cells.filter(elem => elem === 'o')
+                
+                if(check.length === 0 && !cells[4]){
+                    OPlayerStep(cell5)
+                }else {
+                    OPlayerStep(getCellRef(beatIndex))
+                }
+
             } else {
                 XPlayerStep(getCellRef(beatIndex))
             }
