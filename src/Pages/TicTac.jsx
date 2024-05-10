@@ -161,7 +161,9 @@ const TicTac = () => {
             });
 
             if (!matchEnd && player == '1' && choose === 'x') {
+                setTimeout(() => {
                     autoOMove(sq)
+                }, 1000);
             }
         }
 
@@ -193,7 +195,9 @@ const TicTac = () => {
             });
 
             if (!matchEnd && player == '1' && choose === 'o') {
+                setTimeout(() => {
                     autoOMove(sq)
+                }, 1000);
             }
         }
 
