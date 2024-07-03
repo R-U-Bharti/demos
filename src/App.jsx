@@ -28,7 +28,7 @@ const App = () => {
 
       </Routes>
 
-      <button onClick={() => navigate('/')} className='fixed top-0 right-0 p-2 rounded-full bg-slate-500/50 z-50'>🏡</button>
+      <attr title="Home" onClick={() => navigate('/')} className='fixed cursor-pointer top-2 right-2 p-2 rounded-full bg-slate-500/70 border border-slate-400 z-50'>🏡</attr>
 
     </>
   )

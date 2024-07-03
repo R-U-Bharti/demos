@@ -13,7 +13,7 @@ const Home = () => {
     return (
         <div className='h-screen w-screen p-4'>
 
-            <h1 className='text-2xl font-semibold text-center pt-4 mb-6'>Interesting Projects</h1>
+            <h1 className='text-2xl font-semibold text-center pt-4 mb-6'>Interesting Projects By <span className='cursor-pointer hover:underline text-indigo-200' onClick={() => window.open("https://r-u-bharti.github.io/portfolio", "_blank")}>R U Bharti</span></h1>
 
             <div className='flex flex-wrap gap-4'>
                 {
