@@ -9,7 +9,7 @@ import Home from './Pages/Home'
 const App = () => {
 
   const navigate = useNavigate()
-  
+
   return (
     <>
 
@@ -28,7 +28,7 @@ const App = () => {
 
       </Routes>
 
-      <button onClick={() => navigate('/')} className='fixed bottom-0 right-0 p-2 rounded-full bg-slate-500/50 z-50'>🏡</button>
+      <button onClick={() => navigate('/')} className='fixed top-0 right-0 p-2 rounded-full bg-slate-500/50 z-50'>🏡</button>
 
     </>
   )
