@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import chatBot from './chatBot.png'
 import { GoogleGenerativeAI } from "@google/generative-ai";
+import toast from 'react-hot-toast';
 
 const GenAi = () => {
 
@@ -15,7 +16,6 @@ const GenAi = () => {
 
     // AI Logics
     const [prompt, setPrompt] = useState('')
-    const [tempImage, setTempImage] = useState(null)
     const [loader, setLoader] = useState(false)
 
     const API_KEY = import.meta.env.VITE_AI_KEY;
@@ -28,25 +28,24 @@ const GenAi = () => {
 
         // Replace < and > with &lt; and &gt;
         parsedText = parsedText.replace(/</g, '&lt;').replace(/>/g, '&gt;');
+        parsedText = parsedText.replace(/\[(https.*)\]\((https.*)\)/g, '<a style="color: skyblue" target="_blank" href="$1">$2</a>');
 
         // Replace ```code``` with <pre><code> tags
-        parsedText = parsedText.replace(/```(\w+)([\s\S]*?)```/g, '<code style="background-color: green; padding: 4px;">$1</code><pre style="overflow: auto; padding: 0px 8px; background-color: black"><code>$2</code></pre>');
+        parsedText = parsedText.replace(/```(\w*)([\s\S]*?)```/g, '<code style="background-color: green; padding: 4px;">$1</code><pre style="overflow: auto; padding: 0px 8px; background-color: black"><code>$2</code></pre>');
 
         // Replace ## with <h2> tags
         parsedText = parsedText.replace(/##\s*(.*?)\s*\n/g, '<h2>$1</h2>');
 
         // Replace **text** with <strong> tags
-        parsedText = parsedText.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+        parsedText = parsedText.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+        ;
 
         // Replace \n with <br> for line breaks
         parsedText = parsedText.replace(/\n/g, '<br>');
 
-
         return parsedText;
 
     };
-
-    const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash-latest" });
 
     const saveHistory = async (type = 'user', rText) => {
 
@@ -76,14 +75,19 @@ const GenAi = () => {
             // },
         });
 
-        const result = await chat.sendMessage(prompt);
-        const response = await result.response;
-        const text = response.text();
-        await saveHistory('model', text)
-        setPrompt('')
-        setDocument(null)
-        setTempImage(null)
-        setLoader(false)
+        try {
+            const result = await chat.sendMessage(prompt);
+            const response = await result.response;
+            const text = response.text();
+            await saveHistory('model', text)
+            console.log('ai response: ', text)
+        } catch (error) {
+            console.log(error)
+            toast.error('Please try again later...')
+        } finally {
+            setPrompt('')
+            setLoader(false)
+        }
     }
 
     const handleSubmit = async (e) => {
@@ -149,7 +153,6 @@ const GenAi = () => {
                 <div className='w-full text-sm h-[7vh]'>
                     <div className='flex w-full'>
                         <form onSubmit={handleSubmit} className='flex flex-col w-full'>
-                            {tempImage && <img className='border w-full md:w-[50%]' src={URL.createObjectURL(tempImage)} alt="" srcset="" />}
 
                             <div className='flex w-full'>
                                 <textarea value={prompt} cols={2} style={{ resize: 'none' }} placeholder='Prompt Here...' type="text" name="" id="" onChange={e => setPrompt(e.target.value)} className='w-full px-2 md:py-1.5 py-1 bg-black/30 focus:outline-none border border-gray-300/40' />
