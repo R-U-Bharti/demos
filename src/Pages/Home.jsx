@@ -9,7 +9,7 @@ const Home = () => {
     const projects = [
         { image: tictactoe, name: "TicTacToe", path: "/tic-tac-toe" },
         { image: genAi, name: "Gen AI", path:"/gen-ai" },
-        { image: imageAnalyser, name: "Image Analyser", path: "/image-analyser" },
+        { image: imageAnalyser, name: "AI Image Analyser", path: "/image-analyser" },
     ]
 
     return (
