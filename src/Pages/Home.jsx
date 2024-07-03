@@ -15,7 +15,7 @@ const Home = () => {
 
             <h1 className='text-2xl font-semibold text-center pt-4 mb-6'>Interesting Projects</h1>
 
-            <div className='flex gap-4'>
+            <div className='flex flex-wrap gap-4'>
                 {
                     projects?.map((elem, index) =>
                         <Cards key={index} data={elem} />
