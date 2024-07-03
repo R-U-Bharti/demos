@@ -37,8 +37,7 @@ const GenAi = () => {
         parsedText = parsedText.replace(/##\s*(.*?)\s*\n/g, '<h2>$1</h2>');
 
         // Replace **text** with <strong> tags
-        parsedText = parsedText.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
-        ;
+        parsedText = parsedText.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
 
         // Replace \n with <br> for line breaks
         parsedText = parsedText.replace(/\n/g, '<br>');

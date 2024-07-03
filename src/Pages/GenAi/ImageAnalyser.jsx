@@ -23,8 +23,10 @@ const ImageAnalyser = () => {
     // Replace < and > with &lt; and &gt;
     parsedText = parsedText.replace(/</g, '&lt;').replace(/>/g, '&gt;');
 
+    parsedText = parsedText.replace(/\[(https.*)\]\((https.*)\)/g, '<a style="color: skyblue" target="_blank" href="$1">$2</a>');
+
     // Replace ```code``` with <pre><code> tags
-    parsedText = parsedText.replace(/```(\w+)([\s\S]*?)```/g, '<code style="background-color: green; padding: 4px;">$1</code><pre style="overflow: auto; padding: 0px 8px; background-color: black"><code>$2</code></pre>');
+    parsedText = parsedText.replace(/```(\w*)([\s\S]*?)```/g, '<code style="background-color: green; padding: 4px;">$1</code><pre style="overflow: auto; padding: 0px 8px; background-color: black"><code>$2</code></pre>');
 
     // Replace ## with <h2> tags
     parsedText = parsedText.replace(/##\s*(.*?)\s*\n/g, '<h2>$1</h2>');
