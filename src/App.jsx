@@ -5,6 +5,7 @@ import { Toaster } from 'react-hot-toast'
 import { Route, Routes, useNavigate } from 'react-router-dom'
 import GenAi from './Pages/GenAi/GenAi'
 import Home from './Pages/Home'
+import ImageAnalyser from './Pages/GenAi/ImageAnalyser'
 
 const App = () => {
 
@@ -25,6 +26,8 @@ const App = () => {
         <Route path='/tic-tac-toe' element={<TicTac />} />
 
         <Route path='/gen-ai' element={<GenAi />} />
+
+        <Route path='/image-analyser' element={<ImageAnalyser />} />
 
       </Routes>
 

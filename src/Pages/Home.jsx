@@ -1,13 +1,15 @@
 import React from 'react'
-import chat from './GenAi/chatBot.png'
-import tictactoe from './TicTacToe/tictactoe.png'
+import genAi from './GenAi/genAi.png'
+import tictactoe from './TicTacToe/tictactoe.jpg'
+import imageAnalyser from './GenAi/imageAnalyser.jpg'
 import Cards from './Cards'
 
 const Home = () => {
 
     const projects = [
-        { image: chat, name: "Gen AI", path:"/gen-ai" },
-        { image: tictactoe, name: "TicTacToe", path:"/tic-tac-toe" }
+        { image: tictactoe, name: "TicTacToe", path: "/tic-tac-toe" },
+        { image: genAi, name: "Gen AI", path:"/gen-ai" },
+        { image: imageAnalyser, name: "Image Analyser", path: "/image-analyser" },
     ]
 
     return (
