@@ -18,7 +18,7 @@ const GenAi = () => {
     const [tempImage, setTempImage] = useState(null)
     const [loader, setLoader] = useState(false)
 
-    const API_KEY = "AIzaSyC18YzxeU4JNJpABeBF3y100ncHAgKKzZo"
+    const API_KEY = import.meta.env.VITE_AI_KEY;
 
     const genAI = new GoogleGenerativeAI(API_KEY);
 
