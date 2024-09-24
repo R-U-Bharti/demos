@@ -44,7 +44,7 @@ const App = () => {
 
       </Suspense>
 
-      <attr title="Home" onClick={() => navigate('/')} className='fixed cursor-pointer top-2 right-2 p-2 rounded-full bg-slate-500/70 border border-slate-400 z-50'>🏡</attr>
+      <attr title="Home" onClick={() => navigate('/')} className='fixed cursor-pointer top-2 right-2 p-2 rounded-full bg-black hover:bg-white border border-white z-50'>🏡</attr>
 
     </>
   )

@@ -139,7 +139,7 @@ const ImageAnalyser = () => {
       </div>
 
       {result && tempImage2 && <img className='border w-full md:w-[50%] p-2' src={URL.createObjectURL(tempImage2)} alt="" srcset="" />}
-      <div className='w-full md:w-[90%] py-6 text-sm md:text-base md:text-start text-justify' dangerouslySetInnerHTML={{ __html: parseContent(result) }} />
+      <div className='w-full md:w-[90%] p-4 md:p-6 rounded text-sm bg-zinc-800 border border-zinc-400/50 md:text-base md:text-start text-justify' dangerouslySetInnerHTML={{ __html: parseContent(result) }} />
 
     </div>
   )

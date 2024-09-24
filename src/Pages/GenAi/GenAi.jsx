@@ -111,11 +111,11 @@ const GenAi = () => {
                     <div className='flex items-end gap-2 text-sm'>
                         <img src={chatBot} alt="Chatbot" className='md:w-[2.2vw] w-[7vw]  select-none' />
                         <div className='flex flex-col gap-1'>
-                            <span className='rounded-md bg-gray-200/30 w-max flex flex-col px-4 p-2'>
+                            <span className='rounded-md bg-zinc-800 border border-zinc-400/50 w-max flex flex-col px-4 p-2'>
                                 <span>Hi there 👋 </span>
                                 <span>Welcome to <span className='font-bold text-lg'>Gen AI</span> </span>
                             </span>
-                            <span className='rounded-md bg-gray-200/30 w-max px-4 p-2'>
+                            <span className='rounded-md bg-zinc-800 border border-zinc-400/50 w-max px-4 p-2'>
                                 How can I help you ?
                             </span>
                         </div>
@@ -138,7 +138,7 @@ const GenAi = () => {
                                     <div className='flex items-end gap-2 mt-4 w-full md:w-[80%] animate__animated animate__fadeInLeft animate__faster'>
                                         <img src={chatBot} alt="Chatbot" className='md:block hidden md:w-[2.2vw] w-[7vw]  select-none' />
                                         <div className='w-full overflow-auto'>
-                                            <div className='rounded-md bg-gray-200/30 w-full md:w-[90%] p-2 text-sm md:text-base md:text-start text-justify' dangerouslySetInnerHTML={{ __html: parseContent(elem?.parts[0]?.text) }} />
+                                            <div className='rounded-md bg-zinc-800 border border-zinc-400/50 w-full md:w-[90%] p-2 text-sm md:text-base md:text-start text-justify' dangerouslySetInnerHTML={{ __html: parseContent(elem?.parts[0]?.text) }} />
                                         </div>
                                     </div>
                                 }
@@ -155,7 +155,7 @@ const GenAi = () => {
 
                             <div className='flex w-full'>
                                 <textarea value={prompt} cols={2} style={{ resize: 'none' }} placeholder='Prompt Here...' type="text" name="" id="" onChange={e => setPrompt(e.target.value)} className='w-full px-2 md:py-1.5 py-1 bg-black/30 focus:outline-none border border-gray-300/40' />
-                                <button disabled={loader} type="submit" className='text-sm px-3 py-1.5 bg-green-500 hover:bg-green-600'>{loader ? "Thinking...." : "Go"}</button>
+                                <button type="submit" disabled={loader} className='text-sm px-3 py-1.5 bg-green-500 hover:bg-green-600'>{loader ? "Thinking...." : "Go"}</button>
                             </div>
 
                         </form>
