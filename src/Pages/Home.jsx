@@ -14,9 +14,9 @@ const Home = () => {
 
     return (
         <div className="h-screen">
-            <div className='flex flex-wrap gap-4 md:px-8 justify-center place-items-start px-2 md:py-4 py-2 animate__animated animate__fadeIn'>
+            <div className='flex flex-wrap gap-4 md:px-8 justify-center px-2 md:py-4 py-2 animate__animated animate__fadeIn'>
                 <div className="w-full flex justify-center">
-                    <h1 className='text-2xl font-medium text-center py-2 mt-2 mb-4 border-b border-gray-400 w-max px-10'>Entertaining Projects By <span className="font-bold text-amber-400 hover:underline cursor-pointer" onClick={() => window.open('https://r-u-bharti.github.io/portfolio', '_blank')}>R U Bharti</span></h1>
+                    <h1 className='text-2xl font-medium flex flex-wrap justify-center py-2 mt-2 mb-4 border-b border-gray-400 w-max px-10'>Entertaining Projects By <span className="font-bold text-amber-400 hover:underline cursor-pointer" onClick={() => window.open('https://r-u-bharti.github.io/portfolio', '_blank')}>R U Bharti</span></h1>
                 </div>
 
                 {
@@ -26,6 +26,7 @@ const Home = () => {
                 }
 
             </div>
+            <div className="h-[10vh]"></div>
         </div>
     )
 }

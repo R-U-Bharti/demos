@@ -388,7 +388,7 @@ const TicTac = () => {
     }
 
     return (
-        <>
+        <div className='fc h-screen'>
             <div className='flex flex-col items-center justify-center w-screen gap-4'>
 
                 <div className="text-xl font-bold uppercase">🥴 Tic Tac Toe 🥴</div>
@@ -457,7 +457,7 @@ const TicTac = () => {
                 </a>
             </div>
 
-        </>
+        </div>
     )
 }
 

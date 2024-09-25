@@ -86,7 +86,7 @@ const ImageAnalyser = () => {
     setLoader(true)
 
     const image = await fileToGenerativePart(document);
-    
+
     try {
       const result = await model.generateContent([prompt, image]);
       const text = result.response.text();
@@ -116,32 +116,34 @@ const ImageAnalyser = () => {
   }
 
   return (
-    <div className='h-full w-screen bg-transparent backdrop-blur-xl flex flex-col justify-start p-2 md:p-10 gap-4'>
+    <>
+      <div className='h-full w-screen bg-transparent backdrop-blur-xl flex flex-col justify-start p-2 md:p-10 gap-4'>
 
-      <div className='text-center md:text-3xl text-2xl font-bold'>
-        Image Analyser by Gen AI
+        <div className='text-center md:text-3xl text-2xl font-bold border-b py-2'>
+          Image Analyser by Gen AI
+        </div>
+
+        <div className='flex justify-center w-full mt-4'>
+          <form onSubmit={handleSubmit} className='flex flex-col w-full md:w-[50%]'>
+            {tempImage && <img className='border w-full' src={URL.createObjectURL(tempImage)} alt="" srcset="" />}
+
+            <div className='flex w-full'>
+              <textarea cols={3} type="text" name="" id="" onChange={e => setPrompt(e.target.value)} className='w-full px-2 bg-black/30 focus:outline-none border border-gray-300/40' />
+
+              <label for="file" class="labelFile">
+                <p style={{ fontSize: 12 }}>Attach Image</p></label>
+              <input accept='.jpg, .png, jpeg, .webp' class="input" name="text" id="file" type="file" onChange={e => (setDocument(e.target.files[0]), setTempImage(e.target.files[0]))} />
+            </div>
+
+            <button disabled={loader} type="submit" className='text-sm px-2 py-1.5 bg-green-500 hover:bg-green-600'>{loader ? "Thinking...." : "Go"}</button>
+          </form>
+        </div>
+
+        {result && tempImage2 && <img className='border w-full md:w-[50%] p-2' src={URL.createObjectURL(tempImage2)} alt="" srcset="" />}
+        {result && <div className='w-full md:w-[90%] p-4 md:p-6 rounded text-sm bg-zinc-800 border border-zinc-400/50 md:text-base md:text-start text-justify' dangerouslySetInnerHTML={{ __html: parseContent(result) }} />}
+
       </div>
-
-      <div className='flex justify-center w-full'>
-        <form onSubmit={handleSubmit} className='flex flex-col w-full md:w-[50%]'>
-          {tempImage && <img className='border w-full' src={URL.createObjectURL(tempImage)} alt="" srcset="" />}
-
-          <div className='flex w-full'>
-            <textarea cols={3} type="text" name="" id="" onChange={e => setPrompt(e.target.value)} className='w-full px-2 bg-black/30 focus:outline-none border border-gray-300/40' />
-
-            <label for="file" class="labelFile">
-              <p style={{ fontSize: 12 }}>Attach Image</p></label>
-            <input accept='.jpg, .png, jpeg, .webp' class="input" name="text" id="file" type="file" onChange={e => (setDocument(e.target.files[0]), setTempImage(e.target.files[0]))} />
-          </div>
-
-          <button disabled={loader} type="submit" className='text-sm px-2 py-1.5 bg-green-500 hover:bg-green-600'>{loader ? "Thinking...." : "Go"}</button>
-        </form>
-      </div>
-
-      {result && tempImage2 && <img className='border w-full md:w-[50%] p-2' src={URL.createObjectURL(tempImage2)} alt="" srcset="" />}
-      {result && <div className='w-full md:w-[90%] p-4 md:p-6 rounded text-sm bg-zinc-800 border border-zinc-400/50 md:text-base md:text-start text-justify' dangerouslySetInnerHTML={{ __html: parseContent(result) }} />}
-
-    </div>
+    </>
   )
 }
 

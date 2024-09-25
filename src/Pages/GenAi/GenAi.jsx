@@ -129,7 +129,7 @@ const GenAi = () => {
                                 {elem?.role === 'user' &&
                                     <div className='w-full flex justify-end mt-4 select-none'>
                                         <div className='w-full md:w-[75%] flex flex-wrap items-end justify-end gap-2 animate__animated animate__fadeInRight '>
-                                            <span className='w-max text-sm px-4 p-1 rounded-md border border-indigo-600 bg-indigo-400 text-white'>{elem?.parts[0]?.text}</span>
+                                            <span className='w-max text-sm px-4 p-1 rounded-md border border-indigo-400 text-indigo-100'>{elem?.parts[0]?.text}</span>
                                         </div>
                                     </div>
                                 }
